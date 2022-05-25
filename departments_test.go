@@ -10,6 +10,7 @@ var (
 	testDepartmentName        = "TestDepartmentName"
 	testDepartmentUpdatedName = "TestDepartmentUpdatedName"
 
+	testDepartmentLabel = "testdepartmentemail"
 	testDepartmentAlias = "testdepartmentalias"
 )
 
@@ -37,13 +38,9 @@ func TestDepartmentsCRUD(t *testing.T) {
 
 	testDepartmentUpdate(t, y, dCreated.ID)
 
-	// These tests are skipped at the moment. Because
-	// Yandex 360 API returns HTTP/500. Need to contact
-	// with support
-	/*
-		testDepartmentAliasAdd(t, y, dCreated.ID)
-		testDepartmentAliasDelete(t, y, dCreated.ID)
-	*/
+	testDepartmentAliasAdd(t, y, dCreated.ID)
+	testDepartmentAliasDelete(t, y, dCreated.ID)
+
 }
 
 func testDepartmentCreate(t *testing.T, y Ya360) DepartmentRx {
@@ -51,6 +48,7 @@ func testDepartmentCreate(t *testing.T, y Ya360) DepartmentRx {
 	d, err := y.DepartmentCreate(DepartmentCreateTx{
 		Name:     testDepartmentName,
 		ParentID: 1,
+		Label:    testDepartmentLabel,
 	})
 	if err != nil {
 		t.Fatal("Department create error:", err)

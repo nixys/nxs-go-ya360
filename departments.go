@@ -179,7 +179,6 @@ func (ya *Ya360) DepartmentUpdate(departmentID int64, department DepartmentUpdat
 
 // DepartmentAliasAdd adds new alias to specified department
 // Link: https://yandex.ru/dev/api360/doc/ref/DepartmentService/DepartmentService_CreateAlias.html
-// TODO: check this method correctly implemented in Yandex 360 API
 func (ya *Ya360) DepartmentAliasAdd(departmentID int64, alias DepartmentAliasAddTx) (DepartmentRx, error) {
 
 	var (
@@ -206,7 +205,6 @@ func (ya *Ya360) DepartmentAliasAdd(departmentID int64, alias DepartmentAliasAdd
 
 // DepartmentAliasDelete deletes alias from specified department
 // Link: https://yandex.ru/dev/api360/doc/ref/DepartmentService/DepartmentService_DeleteAlias.html
-// TODO: check this method correctly implemented in Yandex 360 API
 func (ya *Ya360) DepartmentAliasDelete(departmentID int64, alias string) (DepartmentAliasDeleteRx, error) {
 
 	var (
