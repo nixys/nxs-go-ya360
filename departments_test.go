@@ -83,7 +83,7 @@ func testDepartmentGet(t *testing.T, y Ya360, departmentID int64) {
 
 func testDepartmentsList(t *testing.T, y Ya360) {
 
-	d, err := y.DepartmentsList(1, 1000, 0, "")
+	d, err := y.DepartmentsList(1, 1000, 0, OrderByID)
 	if err != nil {
 		t.Fatal("Departments list error:", err)
 	}

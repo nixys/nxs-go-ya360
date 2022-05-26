@@ -46,6 +46,17 @@ func (t MemberType) String() string {
 	return string(t)
 }
 
+type Order string
+
+const (
+	OrderByID   Order = "id"
+	OrderByName Order = "name"
+)
+
+func (d Order) String() string {
+	return string(d)
+}
+
 const YaHostDefault = "https://api360.yandex.net"
 
 // Init returns parametrized Node object

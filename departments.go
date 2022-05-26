@@ -48,7 +48,7 @@ type DepartmentCreateTx struct {
 	Description string `json:"description,omitempty"`
 	ExternalID  string `json:"externalId,omitempty"`
 	HeadID      string `json:"headId,omitempty"`
-	Label       string `json:"label,omitempty"`
+	Label       string `json:"label"`
 	Name        string `json:"name"`
 	ParentID    int64  `json:"parentId"`
 }
@@ -122,7 +122,7 @@ func (ya *Ya360) DepartmentGet(departmentID int64) (DepartmentRx, error) {
 
 // DepartmentsList gets departments list
 // Link: https://yandex.ru/dev/api360/doc/ref/DepartmentService/DepartmentService_List.html
-func (ya *Ya360) DepartmentsList(page, perPage, parentId int64, orderBy string) (DepartmentsRx, error) {
+func (ya *Ya360) DepartmentsList(page, perPage, parentId int64, orderBy Order) (DepartmentsRx, error) {
 
 	var (
 		resp DepartmentsRx
@@ -133,7 +133,7 @@ func (ya *Ya360) DepartmentsList(page, perPage, parentId int64, orderBy string) 
 	urlParams.Add("page", strconv.FormatInt(page, 10))
 	urlParams.Add("perPage", strconv.FormatInt(perPage, 10))
 	urlParams.Add("parentId", strconv.FormatInt(parentId, 10))
-	urlParams.Add("orderBy", orderBy)
+	urlParams.Add("orderBy", orderBy.String())
 
 	ur := url.URL{
 		Path:     fmt.Sprintf("/directory/v1/org/%d/departments", ya.s.OrgID),
