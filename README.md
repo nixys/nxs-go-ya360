@@ -71,3 +71,13 @@ Run:
 ```
 YA360_OAUTH="YOUR_YA360_OAUTH" YA360_ORG_ID="YOUR_YA360_ORG_ID" go run main.go
 ```
+
+## Feedback
+
+For support and feedback please contact me:
+- telegram: [@borisershov](https://t.me/borisershov)
+- e-mail: b.ershov@nixys.ru
+
+## License
+
+nxs-go-ya360 is released under the [MIT License](LICENSE).
